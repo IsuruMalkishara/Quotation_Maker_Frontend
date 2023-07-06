@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
+import SummaryTableComponent from './SummaryTableComponent';
 
 const QuotationTableComponent = () => {
 
@@ -16,6 +17,11 @@ const QuotationTableComponent = () => {
  const totalQty = rows.reduce((sum, row) => sum + row.qty,0);
  //total value in RS
   const totalValue = rows.reduce((sum, row) => sum + row.rate * row.qty, 0);
+
+//summary table data
+  const grandTotal = rows.reduce((sum, row) => sum + row.rate * row.qty, 0);
+  const advancedTotal = grandTotal * 0.8;
+  const balancedTotal = grandTotal - advancedTotal;
 
   //insert table data to an array
   const handleCellChange = (event, rowId, field) => {
@@ -87,15 +93,20 @@ const QuotationTableComponent = () => {
         </tbody>
         <tfoot>
           <tr>
-            <td colSpan="3"></td>
-            <td>Total Qty: {totalQty}</td>
-            <td>Total Value: {totalValue}</td>
+            <td colSpan="3">Total:</td>
+            <td>{totalQty}</td>
+            <td>{totalValue}</td>
           </tr>
         </tfoot>
       </Table>
       <Button variant="primary" onClick={handleAddRow}>
-        Add Row
+        + Add New Line
       </Button>
+
+      {/* summary table */}
+      <div style={{ marginTop:'20px' }}>
+      <SummaryTableComponent grand={grandTotal} advanced={advancedTotal} balanced={balancedTotal} />
+      </div>
     </div>
   );
 };
