@@ -8,6 +8,10 @@ const url='http://localhost:8080';
         return axios.get(url + "/reference");    
       }
 
+    addCustomer(data){
+      return axios.post(url+"/customer",data);
+    }  
+
     
     
 }

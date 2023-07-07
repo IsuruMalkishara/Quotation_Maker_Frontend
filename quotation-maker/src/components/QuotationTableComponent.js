@@ -23,7 +23,21 @@ const QuotationTableComponent = () => {
   const advancedTotal = grandTotal * 0.8;
   const balancedTotal = grandTotal - advancedTotal;
 
-  //insert table data to an array
+  //insert description to array
+  const handleDescriptionCellChange = (event, rowId, field) => {
+    const value = event.target.value;
+
+    //update description cell
+    const updatedRows = rows.map((row) => {
+      if (row.id === rowId) {
+        return { ...row, description: value };
+      }
+      return row;
+    });
+    setRows(updatedRows);
+  };
+
+  //insert rate and qty to array
   const handleCellChange = (event, rowId, field) => {
     const value = event.target.value;
 
@@ -70,7 +84,7 @@ const QuotationTableComponent = () => {
                 <input
                   type="text"
                   value={row.description}
-                  onChange={(event) => handleCellChange(event, row.id, 'description')}
+                  onChange={(event) => handleDescriptionCellChange(event, row.id, 'description')}
                 />
               </td>
               <td>
@@ -99,7 +113,7 @@ const QuotationTableComponent = () => {
           </tr>
         </tfoot>
       </Table>
-      <Button variant="primary" onClick={handleAddRow}>
+      <Button id='button' variant="primary" onClick={handleAddRow} style={{ width: '200px' }}>
         + Add New Line
       </Button>
 
