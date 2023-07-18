@@ -1,10 +1,18 @@
 .quotation {
-    
+ 
+  justify-content: center;
+  align-items: center;
     height: auto;
     background: linear-gradient(to right, rgb(2, 70, 50), rgb(181, 202, 241));
   }
 
   .quotation-content{
-    padding: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
+.alert{
+  text-align: center;
+}
