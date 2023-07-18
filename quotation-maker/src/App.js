@@ -1,21 +1,20 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import QuotationPage from './pages/QuotationPage';
+import { DataProvider } from './context/DataContext';
 
 function App() {
   return (
     <div>
-    <Router>
-    <div>
-            
+      <DataProvider>
+        <Router>
+          <div>
             <Routes>
-            
-            <Route path="/" exact element={<QuotationPage/>}></Route>
-            
+              <Route path="/" element={<QuotationPage />} />
             </Routes>
-    </div>
-    </Router>
+          </div>
+        </Router>
+      </DataProvider>
     </div>
   );
 }
