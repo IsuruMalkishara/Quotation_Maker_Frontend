@@ -136,7 +136,7 @@ const handleAdd = () => {
   </div>
 </div>
 
-<div className='row' style={{ margin: '5px', maxHeight: '600px', overflowY: 'scroll' }}>
+<div className='row' style={{ margin: '5px', maxHeight: '400px', overflowY: 'scroll' }}>
           <Table striped bordered >
             <thead>
               <tr>

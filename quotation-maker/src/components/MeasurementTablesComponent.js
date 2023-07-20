@@ -26,10 +26,10 @@ const MeasurementTableComponent = (props) => {
         return (
           <tr key={index}>
             <td>{item.id}</td>
-            <td>{item.height}</td>
-            <td>{item.width}</td>
-            <td>{item.pcs}</td>
-            <td>{item.sqFt}</td>
+            <td style={{ textAlign:'right' }}>{item.height}</td>
+            <td style={{ textAlign:'right' }}>{item.width}</td>
+            <td style={{ textAlign:'rigth' }}>{item.pcs}</td>
+            <td style={{ textAlign:'right' }}>{item.sqFt}</td>
           </tr>
         );
       });
@@ -55,8 +55,8 @@ const MeasurementTableComponent = (props) => {
               <tfoot>
                 <tr>
                   <td colSpan="3">Total:</td>
-                  <td>{totalPcs}</td>
-                  <td>{totalSqFt}</td>
+                  <td style={{ textAlign:'right' }}>{totalPcs.toFixed(3)}</td>
+                  <td style={{ textAlign:'right' }}>{totalSqFt.toFixed(3)}</td>
                 </tr>
               </tfoot>
             )}
@@ -100,10 +100,10 @@ const MeasurementTableComponent = (props) => {
       currentTableRows.push(
         <tr key={i}>
           <td >{item.id}</td>
-          <td>{item.height}</td>
-          <td>{item.width}</td>
-          <td>{item.pcs}</td>
-          <td>{item.sqFt}</td>
+          <td style={{ textAlign:'right' }}>{item.height}</td>
+          <td style={{ textAlign:'right' }}>{item.width}</td>
+          <td style={{ textAlign:'right' }}>{item.pcs}</td>
+          <td style={{ textAlign:'right' }}>{item.sqFt}</td>
         </tr>
       );
 
@@ -132,8 +132,8 @@ const MeasurementTableComponent = (props) => {
               <tfoot>
                 <tr>
                   <td colSpan="3">Total:</td>
-                  <td>{totalPcs}</td>
-                  <td>{totalSqFt}</td>
+                  <td style={{ textAlign:'right' }}>{totalPcs.toFixed(3)}</td>
+                  <td style={{ textAlign:'right' }}>{totalSqFt.toFixed(3)}</td>
                 </tr>
               </tfoot>
             )}
